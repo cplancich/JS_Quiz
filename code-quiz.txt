@@ -1,0 +1,56 @@
+CODE QUIZ
+============================================================================
+
+- 5 questions, 4 possible answers each
+- 60 seconds, why not
+- wrong answer deducts 10 seconds
+- high score displays seconds remaining after all questions are answered
+
+
+QUIZ TOPIC: Blender notes!
+============================================================================
+
+Q1: Which of the following hotkeys rotates the viewport?
+	
+	A: Shift + click
+	B: Mousewheel click
+	C: Shift + Mousewheel click
+	D: None of the above
+
+	Correct Answer: B
+
+Q2: In the layout workspace, what does shift + right click do?
+
+	A: Shows tools
+	B: Shows viewport options
+	C: Places 3D Cursor
+	D: None of the above
+
+	Correct Answer: C
+
+Q3: Besides the modeling workspace, how else can object modeling be accessed?
+
+	A: Edit mode
+	B: Sculpt mode
+	C: Object mode
+	D: None of the above
+
+	Correct Answer: A
+
+Q4: Which hotkey can be used to extrude a face from an object?
+	
+	A: Ctrl (command) + E
+	B: Alt (option) + E
+	C: Shift + E
+	D: None of the above
+
+	Correct Answer: D
+
+Q5: In the Modeling workspace, what does the Tab key do?
+
+	A: Toggles between Object and Edit mode
+	B: Shows tools
+	C: Selects next object
+	D: None of the above
+
+	Correct Answer: A
