@@ -10,8 +10,7 @@ var questions = [
         answer3: "C: Shift + Mousewheel click",
         answer4: "D: None of the above",
         correctAnswer: answer2
-    },
-    
+    }, 
     {
         question: "In the layout workspace, what does shift + right click do?",
         answer1: "A: Shows tools",
@@ -20,7 +19,6 @@ var questions = [
         answer4: "D: None of the above",
         correctAnswer: answer3
     },
-    
     {
         question: "Besides the modeling workspace, how else can object modeling be accessed?",
         answer1: "A: Edit mode",
@@ -29,7 +27,6 @@ var questions = [
         answer4: "D: None of the above",
         correctAnswer: answer1
     },
-    
     {
         question: "Which hotkey can be used to extrude a face from an object?",
         answer1: "A: Ctrl (command) + E",
@@ -38,16 +35,14 @@ var questions = [
         answer4: "D: None of the above",
         correctAnswer: answer4
     },
-    
     {
         question: "In the Modeling workspace, what does the Tab key do?",
         answer1: "A: Toggles between Object and Edit mode",
         answer2: "B: Shows tools",
-        answer3: "C: Shift + E",
         answer4: "C: Selects next object",
+        answer3: "D: None of the above",
         correctAnswer: answer1
     },
-
 ];
 
 // DECLARE the 'timerEl' variable pointing to timer ID in html
@@ -60,7 +55,6 @@ var timerEl = document.querySelector('#timer');
 function startGame() {
     // Hide start screen 
     // Show first question screen
-
     // Begin timer countdown (call an outside function)
     // Display timer on page (append?)
 };
