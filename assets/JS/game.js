@@ -1,23 +1,54 @@
-console.log("game.js linked");
-
 // DECLARE "Countdown" number
 var countdown = 60;
 
 // DECLARE "Questions" objects
 var questions = [
     {
-        // question
-        // answers
-        // correct answer
+        question: "Which of the following hotkeys rotates the viewport?",
+        answer1: "A: Shift + click",
+        answer2: "B: Mousewheel click",
+        answer3: "C: Shift + Mousewheel click",
+        answer4: "D: None of the above",
+        correctAnswer: answer2
     },
+    
     {
-        // question
-        // answers
-        // correct answer
-    }
+        question: "In the layout workspace, what does shift + right click do?",
+        answer1: "A: Shows tools",
+        answer2: "B: Shows viewport options",
+        answer3: "C: Places 3D Cursor",
+        answer4: "D: None of the above",
+        correctAnswer: answer3
+    },
+    
+    {
+        question: "Besides the modeling workspace, how else can object modeling be accessed?",
+        answer1: "A: Edit mode",
+        answer2: "B: Sculpt mode",
+        answer3: "C: Object mode",
+        answer4: "D: None of the above",
+        correctAnswer: answer1
+    },
+    
+    {
+        question: "Which hotkey can be used to extrude a face from an object?",
+        answer1: "A: Ctrl (command) + E",
+        answer2: "B: Alt (option) + E",
+        answer3: "C: Shift + E",
+        answer4: "D: None of the above",
+        correctAnswer: answer4
+    },
+    
+    {
+        question: "In the Modeling workspace, what does the Tab key do?",
+        answer1: "A: Toggles between Object and Edit mode",
+        answer2: "B: Shows tools",
+        answer3: "C: Shift + E",
+        answer4: "C: Selects next object",
+        correctAnswer: answer1
+    },
+
 ];
-
-
 
 // DECLARE the 'timerEl' variable pointing to timer ID in html
 var timerEl = document.querySelector('#timer');
