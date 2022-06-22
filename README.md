@@ -1,3 +1,3 @@
 # JS Quiz
 
-A Javascript short javascript game for remembering Blender hotkeys and stuff.
+A short javascript game for remembering Blender hotkeys and stuff.
