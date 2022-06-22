@@ -5,58 +5,67 @@ var countdown = 60;
 var questions = [
     {
         question: "Which of the following hotkeys rotates the viewport?",
-        answer1: "A: Shift + click",
-        answer2: "B: Mousewheel click",
-        answer3: "C: Shift + Mousewheel click",
-        answer4: "D: None of the above",
-        correctAnswer: answer2
+        possibleAnswers: ["A: Shift + click",
+                        "B: Mousewheel click",
+                        "C: Shift + Mousewheel click",
+                        "D: None of the above"],
+        correctAnswer: "B: Mousewheel click"
     }, 
     {
         question: "In the layout workspace, what does shift + right click do?",
-        answer1: "A: Shows tools",
-        answer2: "B: Shows viewport options",
-        answer3: "C: Places 3D Cursor",
-        answer4: "D: None of the above",
-        correctAnswer: answer3
+        possibleAnswers: ["A: Shows tools",
+                        "B: Shows viewport options",
+                        "C: Places 3D Cursor",
+                        "D: None of the above"],
+        correctAnswer: "C: Places 3D Cursor"
     },
     {
         question: "Besides the modeling workspace, how else can object modeling be accessed?",
-        answer1: "A: Edit mode",
-        answer2: "B: Sculpt mode",
-        answer3: "C: Object mode",
-        answer4: "D: None of the above",
-        correctAnswer: answer1
+        possibleAnswers: ["A: Edit mode",
+                        "B: Sculpt mode",
+                        "C: Object mode",
+                        "D: None of the above"],
+        correctAnswer: "A: Edit mode"
     },
     {
         question: "Which hotkey can be used to extrude a face from an object?",
-        answer1: "A: Ctrl (command) + E",
-        answer2: "B: Alt (option) + E",
-        answer3: "C: Shift + E",
-        answer4: "D: None of the above",
-        correctAnswer: answer4
+        possibleAnswers: ["A: Ctrl (command) + E",
+                        "B: Alt (option) + E",
+                        "C: Shift + E",
+                        "D: None of the above"],
+        correctAnswer: "D: None of the above"
     },
     {
         question: "In the Modeling workspace, what does the Tab key do?",
-        answer1: "A: Toggles between Object and Edit mode",
-        answer2: "B: Shows tools",
-        answer4: "C: Selects next object",
-        answer3: "D: None of the above",
-        correctAnswer: answer1
+        possibleAnswers: ["A: Toggles between Object and Edit mode",
+                        "B: Shows tools",
+                        "C: Selects next object",
+                        "D: None of the above"],
+        correctAnswer: "A: Toggles between Object and Edit mode"
     },
 ];
 
+// Event listener / button to start Function 'startGame'
+var startGame = document.querySelector('#game-start');
+
 // DECLARE the 'timerEl' variable pointing to timer ID in html
 var timerEl = document.querySelector('#timer');
-// Event listener / button to start Function 'startGame'
 
-// timer function
+function timer() {
     // if timer reaches 0, end quiz function
+};
+
+var startPage = document.querySelector('#start-page');
 
 function startGame() {
-    // Hide start screen 
+    // Hide start screen
+    startPage.style.display="none";
     // Show first question screen
+    displayQuestion();
     // Begin timer countdown (call an outside function)
+    timer();
     // Display timer on page (append?)
+    
 };
 
 function displayQuestion() {
