@@ -41,7 +41,6 @@ var questionsArray = [
         correctAnswer: "A: Toggles between Object and Edit mode"
     },
 ];
-
 // DECLARE "Countdown" number
 var countdown = 60;
 // Event listener / button to start Function 'startGame'
@@ -51,7 +50,7 @@ var timerEl = document.querySelector('#timer');
 // Div container which displays the Start game page
 var startPage = document.querySelector('#start-page');
 // Targets Question screen div container
-var questionDiv = document.querySelector('#question-screen');
+var questionScreen = document.querySelector('#question-screen');
 // Logs the index number of question property in questionArray
 var questionIndex = 0;
 // HTML element displaying current question on game screen
@@ -66,10 +65,10 @@ function timer() {
         timerEl.textContent = countdown ;
     
         if(countdown === 0) {
-          // Stops execution of action at set interval
+        // Stops execution of action at set interval
           clearInterval(timerInterval);
-          // Calls function to create and append image
-          sendMessage();
+        // Calls function to end the quiz
+          endQuiz();
         }
       }, 1000);
 };
@@ -81,19 +80,16 @@ function startGame() {
     displayQuestion();
     // Begin timer countdown (call an outside function)
     timer();
-    // Display timer on page (append?)
-
 };
 
 function displayQuestion() {
-    console.log("Question test");
-    questionDiv.removeAttribute("class", "hide");
-    
-    // update HTML to display question
+    // Removes "hide" attribute from questionScreen div
+    questionScreen.removeAttribute("class", "hide");
+    // updates HTML to display question
     questionEl.textContent = questionsArray[questionIndex].question
-    // display answer choices
+    // displays answer choices
     for (let i = 0; i < questionsArray[questionIndex].possibleAnswers.length; i++) {
-        choiceEl.append('<li>hi</li>');
+        choiceEl.append(questionsArray[questionIndex].possibleAnswers[i]+" ");
         
     }
         // capture click event where user is clicking
