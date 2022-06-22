@@ -1,60 +1,62 @@
-// DECLARE "Countdown" number
-var countdown = 60;
-
 // DECLARE "Questions" objects
 var questionsArray = [
     {
         question: "Which of the following hotkeys rotates the viewport?",
         possibleAnswers: ["A: Shift + click",
-                        "B: Mousewheel click",
-                        "C: Shift + Mousewheel click",
-                        "D: None of the above"],
+        "B: Mousewheel click",
+        "C: Shift + Mousewheel click",
+        "D: None of the above"],
         correctAnswer: "B: Mousewheel click"
     }, 
     {
         question: "In the layout workspace, what does shift + right click do?",
         possibleAnswers: ["A: Shows tools",
-                        "B: Shows viewport options",
-                        "C: Places 3D Cursor",
-                        "D: None of the above"],
+        "B: Shows viewport options",
+        "C: Places 3D Cursor",
+        "D: None of the above"],
         correctAnswer: "C: Places 3D Cursor"
     },
     {
         question: "Besides the modeling workspace, how else can object modeling be accessed?",
         possibleAnswers: ["A: Edit mode",
-                        "B: Sculpt mode",
-                        "C: Object mode",
-                        "D: None of the above"],
+        "B: Sculpt mode",
+        "C: Object mode",
+        "D: None of the above"],
         correctAnswer: "A: Edit mode"
     },
     {
         question: "Which hotkey can be used to extrude a face from an object?",
         possibleAnswers: ["A: Ctrl (command) + E",
-                        "B: Alt (option) + E",
-                        "C: Shift + E",
-                        "D: None of the above"],
+        "B: Alt (option) + E",
+        "C: Shift + E",
+        "D: None of the above"],
         correctAnswer: "D: None of the above"
     },
     {
         question: "In the Modeling workspace, what does the Tab key do?",
         possibleAnswers: ["A: Toggles between Object and Edit mode",
-                        "B: Shows tools",
-                        "C: Selects next object",
-                        "D: None of the above"],
+        "B: Shows tools",
+        "C: Selects next object",
+        "D: None of the above"],
         correctAnswer: "A: Toggles between Object and Edit mode"
     },
 ];
 
+// DECLARE "Countdown" number
+var countdown = 60;
 // Event listener / button to start Function 'startGame'
 var startButton = document.querySelector('#game-start');
 // DECLARE the 'timerEl' variable pointing to timer ID in html
 var timerEl = document.querySelector('#timer');
+// Div container which displays the Start game page
 var startPage = document.querySelector('#start-page');
 // Targets Question screen div container
 var questionDiv = document.querySelector('#question-screen');
 // Logs the index number of question property in questionArray
 var questionIndex = 0;
+// HTML element displaying current question on game screen
 var questionEl = document.querySelector("#current-question");
+// HTML element displaying selectable answers on game screen
 var choiceEl = document.querySelector('#possible-answers');
 
 function timer() {
@@ -71,7 +73,6 @@ function timer() {
         }
       }, 1000);
 };
-
 
 function startGame() {
     // Hide start screen
@@ -100,22 +101,22 @@ function displayQuestion() {
     // call answerQuestion to answer
     // Hide answered question
     // display next question
-    // IF questionIndex > 4, endQuiz();
 };
 
 function answerQuestion() {
     // Check if selected answer is correct
-        // IF the answer is wrong
-        // THEN we need to subtract 15 secs from countdown timer function
-        // Update timerEl to display time remaining
-        // If wrong, timer -= 10
-        // Update questionIndex ++ to advance to next question
+    // IF the answer is wrong
+    // THEN we need to subtract 15 secs from countdown timer function
+    // Update timerEl to display time remaining
+    // If wrong, timer -= 10
+    // Update questionIndex ++ to advance to next question
     // Move on to next question
-        // If timer function ends, endQuiz()
-        // IF all questions are answered
-        // THEN quiz will end
-        // compare index numbers in questions array to verify quiz is over
-        // else displayQuestion();
+    // If timer function ends, endQuiz()
+    // IF all questions are answered
+    // THEN quiz will end
+    // compare index numbers in questions array to verify quiz is over
+    // IF questionIndex > 4, endQuiz();
+    // else displayQuestion();
 };
 
 function endQuiz() {
