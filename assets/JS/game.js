@@ -44,6 +44,7 @@ var questions = [
         correctAnswer: "A: Toggles between Object and Edit mode"
     },
 ];
+console.log(questions);
 
 // Event listener / button to start Function 'startGame'
 var startGame = document.querySelector('#game-start');
@@ -65,7 +66,7 @@ function startGame() {
     // Begin timer countdown (call an outside function)
     timer();
     // Display timer on page (append?)
-    
+
 };
 
 function displayQuestion() {
