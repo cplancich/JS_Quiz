@@ -2,7 +2,7 @@
 var countdown = 60;
 
 // DECLARE "Questions" objects
-var questions = [
+var questionsArray = [
     {
         question: "Which of the following hotkeys rotates the viewport?",
         possibleAnswers: ["A: Shift + click",
@@ -50,7 +50,12 @@ var startButton = document.querySelector('#game-start');
 // DECLARE the 'timerEl' variable pointing to timer ID in html
 var timerEl = document.querySelector('#timer');
 var startPage = document.querySelector('#start-page');
+// Targets Question screen div container
 var questionDiv = document.querySelector('#question-screen');
+// Logs the index number of question property in questionArray
+var questionIndex = 0;
+var questionEl = document.querySelector("#current-question");
+var choiceEl = document.querySelector('#possible-answers');
 
 function timer() {
     // if timer reaches 0, end quiz function
@@ -82,14 +87,20 @@ function startGame() {
 function displayQuestion() {
     console.log("Question test");
     questionDiv.removeAttribute("class", "hide");
-    // var currentQuestion = question[i];
+    
     // update HTML to display question
+    questionEl.textContent = questionsArray[questionIndex].question
     // display answer choices
+    for (let i = 0; i < questionsArray[questionIndex].possibleAnswers.length; i++) {
+        choiceEl.append('<li>hi</li>');
+        
+    }
         // capture click event where user is clicking
         // verify answer is correct
     // call answerQuestion to answer
     // Hide answered question
     // display next question
+    // IF questionIndex > 4, endQuiz();
 };
 
 function answerQuestion() {
@@ -97,7 +108,10 @@ function answerQuestion() {
         // IF the answer is wrong
         // THEN we need to subtract 15 secs from countdown timer function
         // Update timerEl to display time remaining
+        // If wrong, timer -= 10
+        // Update questionIndex ++ to advance to next question
     // Move on to next question
+        // If timer function ends, endQuiz()
         // IF all questions are answered
         // THEN quiz will end
         // compare index numbers in questions array to verify quiz is over
