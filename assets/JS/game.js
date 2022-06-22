@@ -44,23 +44,33 @@ var questions = [
         correctAnswer: "A: Toggles between Object and Edit mode"
     },
 ];
-console.log(questions);
 
 // Event listener / button to start Function 'startGame'
-var startGame = document.querySelector('#game-start');
-
+var startButton = document.querySelector('#game-start');
 // DECLARE the 'timerEl' variable pointing to timer ID in html
 var timerEl = document.querySelector('#timer');
+var startPage = document.querySelector('#start-page');
+var questionDiv = document.querySelector('#question-screen');
 
 function timer() {
     // if timer reaches 0, end quiz function
+    var timerInterval = setInterval(function() {
+        countdown--;
+        timerEl.textContent = countdown ;
+    
+        if(countdown === 0) {
+          // Stops execution of action at set interval
+          clearInterval(timerInterval);
+          // Calls function to create and append image
+          sendMessage();
+        }
+      }, 1000);
 };
 
-var startPage = document.querySelector('#start-page');
 
 function startGame() {
     // Hide start screen
-    startPage.style.display="none";
+    startPage.setAttribute("class", "hide");
     // Show first question screen
     displayQuestion();
     // Begin timer countdown (call an outside function)
@@ -70,6 +80,8 @@ function startGame() {
 };
 
 function displayQuestion() {
+    console.log("Question test");
+    questionDiv.removeAttribute("class", "hide");
     // var currentQuestion = question[i];
     // update HTML to display question
     // display answer choices
@@ -104,3 +116,5 @@ function endQuiz() {
 function hiScore() {
     // saves high score to local storage
 };
+
+startButton.addEventListener("click", startGame);
