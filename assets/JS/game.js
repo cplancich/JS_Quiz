@@ -87,9 +87,12 @@ function displayQuestion() {
     questionScreen.removeAttribute("class", "hide");
     // updates HTML to display question
     questionEl.textContent = questionsArray[questionIndex].question
+    // Variable to catch answer choices within current question
+    var answerList = questionsArray[questionIndex].possibleAnswers
     // displays answer choices
-    for (let i = 0; i < questionsArray[questionIndex].possibleAnswers.length; i++) {
-        choiceEl.append(questionsArray[questionIndex].possibleAnswers[i]+" ");
+    for (let i = 0; i < answerList.length; i++) {
+        // How do append as <li> item?
+        choiceEl.append(answerList[i]+" ");
         
     }
         // capture click event where user is clicking
