@@ -91,15 +91,13 @@ function displayQuestion() {
     var answerList = questionsArray[questionIndex].possibleAnswers
     // displays answer choices
     for (let i = 0; i < answerList.length; i++) {
-        // How do append as <li> item?
+        // Appends answer choices as <li> items to page
         var answerChoice = document.createElement('li');
         answerChoice.textContent = answerList[i];
         choiceEl.append(answerChoice);
-
-        // choiceEl.append(answerList[i]+" ");
-        
     }
         // capture click event where user is clicking
+        
         // verify answer is correct
     // call answerQuestion to answer
     answerQuestion();

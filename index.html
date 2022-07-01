@@ -22,6 +22,19 @@
         <ul id="possible-answers"></ul>
     </div>
     <!-- END QUIZ SCREEN -->
+    <div id="end-screen" class="hide">
+        <h1>Game Over!</h1>
+        <p>You got <p id="number-correct"></p> questions out of 5 correct with <p id="end-time"> seconds remaining. Wow, you're so good at Blender!</p>
+        <form id="hi-score-name"><input type="submit"></form>
+        <button id="view-high-scores">View High Scores</button>
+        <button id="game-start">Play Again</button>
+    </div>
+    <!-- HIGH SCORE SCREEN -->
+    <div id="high-scores" class="hide">
+        <h1>High Scores!</h1>
+        <ul id="top-5-scores"></ul>
+        <button id="game-start">Play Again</button>
+    </div>
 
     <script src="./assets/JS/game.js"></script>
 </body>
