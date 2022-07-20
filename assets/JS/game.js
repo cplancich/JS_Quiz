@@ -57,10 +57,12 @@ var questionIndex = 0;
 var questionEl = document.querySelector("#current-question");
 // HTML element displaying selectable answers on game screen
 var choiceEl = document.querySelector('#possible-answers');
+var timerInterval;
+
 
 function timer() {
     // if timer reaches 0, end quiz function
-    var timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
         countdown--;
         timerEl.textContent = countdown ;
     
@@ -90,48 +92,57 @@ function displayQuestion() {
     // Variable to catch answer choices within current question
     var answerList = questionsArray[questionIndex].possibleAnswers
     // displays answer choices
+    choiceEl.innerHTML = "";
     for (let i = 0; i < answerList.length; i++) {
         // Appends answer choices as <li> items to page
-        var answerChoice = document.createElement('li');
+        var answerChoice = document.createElement('button');
         answerChoice.textContent = answerList[i];
         choiceEl.append(answerChoice);
+        answerChoice.classList.add("choice");
     }
-        // capture click event where user is clicking
+    };
+    
+    console.log(choiceEl);
+    function answerQuestion(event) {
         
-        // verify answer is correct
-    // call answerQuestion to answer
-    answerQuestion();
-    // Hide answered question
-    // display next question
-};
+        var correctAnswer = questionsArray[questionIndex].correctAnswer;
+        var userSelection = event.target.innerHTML;
+        
+        console.log(event)
+        if (userSelection!==correctAnswer) {
+            countdown -= 15
+            timerEl.textContent = countdown;
+            // Add visual feedback that displays answer is wrong (red box styling?)
+        } else {
+            // Visual feedback for correct answer
+        }
+        // Move on to next question
+        questionIndex++;
+        if (questionIndex===questionsArray.length) {
+            endQuiz();
+        } else {
+            displayQuestion();
+        }
+    };
+    
+    function endQuiz() {
+        console.log("Game over");
+        // Timer stops
+        clearInterval(timerInterval);
+        // hide questions
+        questionScreen.setAttribute("class", "hide");
+        // Display end screen
 
-function answerQuestion() {
-    // Check if selected answer is correct
-    // IF the answer is wrong
-    // THEN we need to subtract 15 secs from countdown timer function
-    // Update timerEl to display time remaining
-    // If wrong, timer -= 10
-    // Update questionIndex ++ to advance to next question
-    // Move on to next question
-    // If timer function ends, endQuiz()
-    // IF all questions are answered
-    // THEN quiz will end
-    // compare index numbers in questions array to verify quiz is over
-    // IF questionIndex > 4, endQuiz();
-    // else displayQuestion();
-};
-
-function endQuiz() {
-    // Timer stops
-    // hide questions
-    // Display end screen
-    // Display final score
-    // Ask if user wants to play again
-    // re-direct to high scores page
-};
-
-function hiScore() {
-    // saves high score to local storage
-};
-
-startButton.addEventListener("click", startGame);
+        // Display final score
+        // Time remaining on timerEl (countdown)
+        // Create HTML form to add user input name to local storage
+        
+        // submit re-directs to high scores page
+    };
+    
+    function hiScore() {
+        // saves high score to local storage
+    };
+    
+    startButton.addEventListener("click", startGame);
+    choiceEl.addEventListener("click", answerQuestion);
