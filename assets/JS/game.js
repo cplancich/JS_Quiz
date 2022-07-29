@@ -42,7 +42,7 @@ var questionsArray = [
     },
 ];
 // DECLARE "Countdown" number
-var countdown = 60;
+var countdown = 30;
 // Event listener / button to start Function 'startGame'
 var startButton = document.querySelector('#game-start');
 // DECLARE the 'timerEl' variable pointing to timer ID in html
@@ -58,6 +58,16 @@ var questionEl = document.querySelector("#current-question");
 // HTML element displaying selectable answers on game screen
 var choiceEl = document.querySelector('#possible-answers');
 var timerInterval;
+// end screen
+var endScreen = document.querySelector('#end-screen');
+// Hight scores
+var hiScores = document.querySelector('#high-scores');
+// end time / final score
+var endTime = document.querySelector('#end-time');
+// form element for submission
+var submitForm = document.querySelector('#hi-score-name')
+// top 5 scores
+var top5 = document.querySelector('#top-5-scores');
 
 
 function timer() {
@@ -105,6 +115,10 @@ function displayQuestion() {
     console.log(choiceEl);
     function answerQuestion(event) {
         
+        if (countdown < 0){
+            countdown = 0;
+        }
+
         var correctAnswer = questionsArray[questionIndex].correctAnswer;
         var userSelection = event.target.innerHTML;
         
@@ -132,19 +146,62 @@ function displayQuestion() {
         // hide questions
         questionScreen.setAttribute("class", "hide");
         // Display end screen
+        endScreen.removeAttribute("class", "hide");
 
         // Display final score
-        // Time remaining on timerEl (countdown)
+        endTime.textContent = countdown;
         // Create HTML form to add user input name to local storage
+        // prevent default with submit button
         
         // submit re-directs to high scores page
-    };
-    
-    function hiScore() {
-        // saves high score to local storage
-            // Save user name and score as an object with two parameters
         
     };
     
+    function hiScore(event) {
+        var initials = document.querySelector("#initials-input").value;
+        console.log(initials);
+        console.log(countdown);
+        
+        event.preventDefault();
+        // saves high score to local storage
+        console.log("Form Submitted")
+        saveHiScore(initials, countdown);
+            // Save user name and score as an object with two parameters
+            initials = "";
+        viewScores();
+    };
+
+    function saveHiScore(initials, score) {
+        var newScore = {
+            name: initials,
+            score: score,
+        }
+
+        var scoreData = JSON.parse(localStorage.getItem("userScore"))||[];
+        scoreData.push(newScore);
+        localStorage.setItem("userScore", JSON.stringify(scoreData));
+
+    }
+    
+    function viewScores() {
+        // Hide previous screen
+        endScreen.setAttribute("class", "hide");
+        // Show Hi score screen
+        hiScores.removeAttribute("class","hide");
+        // Append hi scores to page
+            // get from local storage
+            var scoreData = JSON.parse(localStorage.getItem("userScore"))||[];
+            // display as <li> items within #top-5-scores id
+            for (let i = 0; i < scoreData.length; i++) {
+                var listEl = document.createElement("li")
+                listEl.textContent = scoreData[i].name + `:` + scoreData[i].score
+                top5.appendChild(listEl);
+                
+            }
+    }
+
     startButton.addEventListener("click", startGame);
     choiceEl.addEventListener("click", answerQuestion);
+    submitForm.addEventListener("submit", hiScore);
+    // clear hi scores button (function to clear local storage)
+    // play again button startGame()

@@ -24,10 +24,11 @@
     <!-- END QUIZ SCREEN -->
     <div id="end-screen" class="hide">
         <h1>Game Over!</h1>
-        <p>You got <p id="number-correct"></p> questions out of 5 correct with <p id="end-time"> seconds remaining. Wow, you're so good at Blender!</p>
-        <form id="hi-score-name"><input type="submit"></form>
-        <button id="view-high-scores">View High Scores</button>
-        <button id="game-start">Play Again</button>
+        <p>You finished with <span id="end-time"></span> seconds remaining. Wow, you're so good at Blender!</p>
+        <form id="hi-score-name">
+            <input placeholder="Initials"type="text" id="initials-input">
+            <button id="submit-score" type="submit">Submit</button>
+        </form>
     </div>
     <!-- HIGH SCORE SCREEN -->
     <div id="high-scores" class="hide">
