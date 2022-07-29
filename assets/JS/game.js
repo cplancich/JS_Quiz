@@ -142,6 +142,8 @@ function displayQuestion() {
     
     function hiScore() {
         // saves high score to local storage
+            // Save user name and score as an object with two parameters
+        
     };
     
     startButton.addEventListener("click", startGame);
